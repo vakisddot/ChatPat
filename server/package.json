@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "tsc --project ./",
-        "start": "nodemon --exec ts-node server.ts"
+        "start": "nodemon --exec ts-node src/server.ts"
     },
     "author": "vakisddot",
     "license": "ISC",
