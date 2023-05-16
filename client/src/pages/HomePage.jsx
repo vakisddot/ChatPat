@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Input, Button, Avatar } from "@chakra-ui/react";
 import isNullOrWhitespace from "../utils.ts";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
     const endpoint = "/api/new-user";
@@ -8,11 +9,12 @@ const HomePage = () => {
     const [avatarUrl, setAvatarUrl] = useState("");
     const [nickname, setNickname] = useState("");
 
+    const navigate = useNavigate();
+
     return (
         <div>
             <h1>ChatPat</h1>
-
-            <div>
+            <div id="loginForm">
                 <Avatar size="xl" src={avatarUrl || null} />
                 <br />
                 <label htmlFor="inAvatar">Avatar</label>
@@ -42,7 +44,7 @@ const HomePage = () => {
                 />
 
                 <Button
-                    colorScheme="blue"
+                    colorScheme="purple"
                     onClick={() => {
                         if (isNullOrWhitespace(nickname)) {
                             alert("Invalid nickname!");
@@ -62,9 +64,7 @@ const HomePage = () => {
                                 "Content-Type": "application/json",
                             },
                             body: JSON.stringify(newUser),
-                        })
-                            .then((res) => console.log(res))
-                            .catch((err) => console.log(err.message));
+                        }).then(navigate("/chat"));
                     }}
                 >
                     Join Chat

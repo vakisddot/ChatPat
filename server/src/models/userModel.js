@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
     nickname: {
         type: String,
         trim: true,
+        unique: true,
         required: true,
     },
     avatarUrl: {
