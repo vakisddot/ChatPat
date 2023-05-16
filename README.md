@@ -8,4 +8,5 @@
     <li>React</li>
     <li>Chakra UI</li>
     <li>Axios</li>
+    <li>MongoDB</li>
 </ul>
