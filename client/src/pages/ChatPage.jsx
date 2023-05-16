@@ -8,8 +8,8 @@ const ChatPage = () => {
         const endpoint = "/api/temp";
         const data = await axios.get(endpoint);
 
-        console.log(data);
-        setUserData(data);
+        console.log(data.data);
+        setUserData(data.data);
     };
 
     useEffect(() => {
@@ -20,10 +20,14 @@ const ChatPage = () => {
         <div>
             <p>This is where the chat will be displayed eventually</p>
 
-            <ul>
-                <li>{userData.data.name}</li>
-                <li>{userData.data.age}</li>
-            </ul>
+            {userData ? (
+                <ul>
+                    <li>{userData.name}</li>
+                    <li>{userData.age}</li>
+                </ul>
+            ) : (
+                <span>No userdata found</span>
+            )}
         </div>
     );
 };

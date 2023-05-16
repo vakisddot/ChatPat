@@ -4,11 +4,11 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port: string = process.env.PORT || "3001";
 
 const tempData = {
-    name: "Ivaylo",
-    age: 22,
+    name: "Adnan Beats",
+    age: 24,
     isCool: true,
 };
 
