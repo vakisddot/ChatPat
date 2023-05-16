@@ -3,7 +3,9 @@ import { Input, Button, Avatar } from "@chakra-ui/react";
 import isNullOrWhitespace from "../utils.ts";
 
 const HomePage = () => {
-    const [avatar, setAvatar] = useState(null);
+    const endpoint = "/api/new-user";
+
+    const [avatarUrl, setAvatarUrl] = useState("");
     const [nickname, setNickname] = useState("");
 
     return (
@@ -11,10 +13,7 @@ const HomePage = () => {
             <h1>ChatPat</h1>
 
             <div>
-                <Avatar
-                    size="xl"
-                    src={avatar ? URL.createObjectURL(avatar) : null}
-                />
+                <Avatar size="xl" src={avatarUrl || null} />
                 <br />
                 <label htmlFor="inAvatar">Avatar</label>
                 <br />
@@ -27,7 +26,7 @@ const HomePage = () => {
 
                         if (newAvatar == null) return;
 
-                        setAvatar(newAvatar);
+                        setAvatarUrl(URL.createObjectURL(newAvatar));
                     }}
                 />
                 <br />
@@ -49,6 +48,23 @@ const HomePage = () => {
                             alert("Invalid nickname!");
                             return;
                         }
+
+                        const newUser = {
+                            nickname: nickname,
+                            avatarUrl: avatarUrl,
+                        };
+
+                        console.log(newUser);
+
+                        fetch(endpoint, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(newUser),
+                        })
+                            .then((res) => console.log(res))
+                            .catch((err) => console.log(err.message));
                     }}
                 >
                     Join Chat

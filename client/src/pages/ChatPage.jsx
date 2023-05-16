@@ -14,7 +14,7 @@ const ChatPage = () => {
 
     useEffect(() => {
         fetchData();
-    });
+    }, []);
 
     return (
         <div>

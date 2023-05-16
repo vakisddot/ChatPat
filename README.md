@@ -5,8 +5,6 @@
 <ul>
     <li>Node.js</li>
     <li>Express</li>
-    <li>React</li>
-    <li>Chakra UI</li>
-    <li>Axios</li>
+    <li>React + Chakra UI</li>
     <li>MongoDB</li>
 </ul>

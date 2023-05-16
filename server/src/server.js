@@ -1,12 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectToDatabase = require("./config/db");
+const User = require("./models/userModel");
 
 dotenv.config();
 connectToDatabase();
 
 const app = express();
-const port: string = process.env.PORT || "3001";
+app.use(express.json());
+const port = process.env.PORT || "3001";
 
 const tempData = {
     name: "Adnan Beats",
@@ -16,6 +18,10 @@ const tempData = {
 
 app.listen(port, console.log(`Server has started. Port: ${port}`));
 
-app.get("/api/temp", (req: any, res: any) => {
-    res.send(tempData);
+app.post("/api/new-user", (req, res) => {
+    const user = new User(req.body);
+    user.save()
+        .then()
+        .catch((err) => {});
+    console.log(`New user has been registered! Data: ${user}`);
 });
