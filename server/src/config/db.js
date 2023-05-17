@@ -5,12 +5,11 @@ const connectToDatabase = async () => {
         .connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
         })
-        .then(() => {
-            console.log("Connected to MongoDB!");
+        .then((res) => {
+            console.log(`Connected to MongoDB! ${res}`);
         })
         .catch((err) => {
             console.log(`Failed to connect to MongoDB! ${err.message}`);
-            process.exit(1);
         });
 };
 

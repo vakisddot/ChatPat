@@ -12,7 +12,7 @@ const HomePage = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div id="homePage">
             <h1>ChatPat</h1>
             <div id="loginForm">
                 <Avatar size="xl" src={avatarUrl || null} />
@@ -64,7 +64,7 @@ const HomePage = () => {
                                 "Content-Type": "application/json",
                             },
                             body: JSON.stringify(newUser),
-                        }).then(navigate("/chat"));
+                        }).then(navigate("/chat", { state: newUser }));
                     }}
                 >
                     Join Chat
