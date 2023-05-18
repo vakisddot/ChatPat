@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { Input, Button } from "@chakra-ui/react";
 import ChatMessage from "../components/ChatMessage";
 import config from "../config";
-import ParticlesBackground from "../components/ParticlesBackground";
 
 const ChatPage = () => {
     const endpoint = "/api/all-messages";
@@ -21,8 +20,11 @@ const ChatPage = () => {
                 return res.json();
             })
             .then((messages) => {
-                console.log(messages);
+                console.log("Successfully retreived old messages!");
                 setMessages(messages);
+            })
+            .catch((err) => {
+                console.log(`Failed to retreive old messages! Error: ${err}`);
             });
     }, []);
 
@@ -104,7 +106,9 @@ const ChatPage = () => {
                     }}
                 />
                 <Button
+                    border={"1px solid white"}
                     colorScheme="teal"
+                    marginLeft={"5px"}
                     onClick={() => {
                         sendMessage();
                     }}
