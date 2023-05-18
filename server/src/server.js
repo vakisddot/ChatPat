@@ -1,13 +1,14 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const connectToDatabase = require("./config/db");
+const connectToDatabase = require("./db");
 const setUpWebSocketServer = require("./websocket");
 const apiRoutes = require("./routes/apiRoutes");
+const config = require("./config");
 
 // Setting up .env
 dotenv.config();
-const serverPort = process.env.SERVER_PORT || "3001";
-const wssPort = process.env.WSS_PORT || "3002";
+const serverPort = config.serverPort || "3001";
+const wssPort = config.wssPort || "3002";
 
 // Setting up db
 connectToDatabase();

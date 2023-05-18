@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Input, Button } from "@chakra-ui/react";
 import ChatMessage from "../components/ChatMessage";
+import config from "../config";
 
 const ChatPage = () => {
     const endpoint = "/api/all-messages";
-    const wssPort = "3002";
 
     // States
     const { state } = useLocation();
@@ -27,7 +27,7 @@ const ChatPage = () => {
 
     // WSS
     useEffect(() => {
-        ws.current = new WebSocket(`ws://localhost:${wssPort}`);
+        ws.current = new WebSocket(`ws://${config.wssHost}:${config.wssPort}`);
 
         ws.current.addEventListener("open", () => {
             console.log("Connected to the WSS!");
