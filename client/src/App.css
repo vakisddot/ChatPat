@@ -131,3 +131,7 @@ h6 {
 ul {
     list-style: none;
 }
+
+#inAvatar {
+    display: flex;
+}

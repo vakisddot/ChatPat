@@ -21,18 +21,34 @@ const HomePage = () => {
                 <br />
                 <label htmlFor="inAvatar">Avatar</label>
                 <br />
-                <Input
-                    size="md"
-                    type="file"
-                    id="inAvatar"
-                    onChange={(e) => {
-                        const newAvatar = e.target.files[0];
+                <div id="inAvatar">
+                    <Input
+                        size="md"
+                        type="file"
+                        id="inAvatarFile"
+                        onChange={(e) => {
+                            const newAvatar = e.target.files[0];
 
-                        if (newAvatar == null) return;
+                            if (newAvatar == null) return;
 
-                        setAvatarUrl(URL.createObjectURL(newAvatar));
-                    }}
-                />
+                            setAvatarUrl(URL.createObjectURL(newAvatar));
+                        }}
+                    />
+                    <Input
+                        size="md"
+                        type="text"
+                        id="inAvatarUrl"
+                        placeholder="Paste avatar URL"
+                        onChange={(e) => {
+                            const newAvatar = e.target.value;
+
+                            if (newAvatar == null) return;
+
+                            setAvatarUrl(e.target.value);
+                        }}
+                    />
+                </div>
+
                 <br />
 
                 <label htmlFor="inNickname">Nickname</label>
