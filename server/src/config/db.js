@@ -5,8 +5,8 @@ const connectToDatabase = async () => {
         .connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
         })
-        .then((res) => {
-            console.log(`Connected to MongoDB! ${res}`);
+        .then(() => {
+            console.log(`Connected to MongoDB!`);
         })
         .catch((err) => {
             console.log(`Failed to connect to MongoDB! ${err.message}`);

@@ -18,6 +18,7 @@
 /* Mnogo pozdravi na chatgpt :) */
 #chatContainer {
     flex-direction: column-reverse;
+    width: 75vw;
     height: 80vh; /* Set the height of the chat container */
     overflow-y: auto; /* Enable vertical scrolling if needed */
     margin-bottom: 20px;
@@ -30,6 +31,16 @@
     padding: 10px;
     display: flex;
     margin: 5px;
+    height: fit-content;
+}
+
+#chatContainer * {
+    overflow-anchor: none;
+}
+
+#anchor {
+    overflow-anchor: auto;
+    height: 1px;
 }
 
 .chatMessage #avatar {
