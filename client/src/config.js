@@ -1,5 +1,5 @@
 const config = {
-    wssHost: "172.16.1.110",
+    wssHost: "172.16.1.137",
     wssPort: "3002",
 };
 
