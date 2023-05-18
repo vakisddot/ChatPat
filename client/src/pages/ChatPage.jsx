@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Input, Button } from "@chakra-ui/react";
 import ChatMessage from "../components/ChatMessage";
 import config from "../config";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 const ChatPage = () => {
     const endpoint = "/api/all-messages";
@@ -70,6 +71,14 @@ const ChatPage = () => {
                             nickname={msg.sentBy.nickname}
                             message={msg.message}
                             avatarUrl={msg.sentBy.avatarUrl}
+                            timestamp={
+                                msg.createdAt
+                                    ? msg.createdAt
+                                          .slice(0, -5)
+                                          .split("T")
+                                          .join(" ")
+                                    : null
+                            }
                             key={msg._id}
                         />
                     ))
@@ -95,7 +104,7 @@ const ChatPage = () => {
                     }}
                 />
                 <Button
-                    colorScheme="purple"
+                    colorScheme="teal"
                     onClick={() => {
                         sendMessage();
                     }}

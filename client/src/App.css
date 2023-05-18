@@ -1,16 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,700&family=Figtree:ital,wght@1,300&family=Raleway:wght@100;200&family=Righteous&display=swap");
+
+:root {
+    --primary-bg-color: #160f29;
+    --secondary-bg-color: #368f8b;
+    --title-color: #ddbea8;
+    --text-color: #f3dfc1;
+}
 
 #root {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#171738, #3423a6);
-    color: #dff3e4;
+    background: linear-gradient(
+        var(--primary-bg-color),
+        var(--secondary-bg-color)
+    );
+    color: var(--text-color);
 }
 
 #loginForm {
-    background-color: #171738;
+    background-color: var(--primary-bg-color);
     border-radius: 15px;
     padding: 20px;
 }
@@ -26,12 +36,26 @@
 }
 
 .chatMessage {
-    background-color: #171738;
+    background-color: var(--primary-bg-color);
     border-radius: 15px;
     padding: 10px;
     display: flex;
     margin: 5px;
     height: fit-content;
+}
+
+.chatMessage #timestamp {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.chatMessage:hover #timestamp {
+    opacity: 1;
+    padding-left: 10px;
+    color: var(--secondary-bg-color);
+    font-size: 12px;
+    visibility: visible;
 }
 
 #chatContainer * {
@@ -69,20 +93,31 @@ h1 {
     margin-bottom: 20px;
 }
 
+Input:focus {
+    background-color: var(--primary-bg-color);
+}
+
 Button:hover {
     transform: translateY(-3px);
 }
 
 h1 {
+    font-family: "Alegreya", serif;
     font-size: 75px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    color: var(--title-color);
 }
 
 .App {
     text-align: center;
-}
-
-.App-link {
-    color: #61dafb;
 }
 
 #chatInput {

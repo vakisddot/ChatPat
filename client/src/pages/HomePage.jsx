@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Input, Button, Avatar } from "@chakra-ui/react";
 import isNullOrWhitespace from "../utils.ts";
 import { useNavigate } from "react-router-dom";
+import ParticlesBackground from "../components/ParticlesBackground.jsx";
 
 const HomePage = () => {
     const endpoint = "/api/new-user";
@@ -13,6 +14,7 @@ const HomePage = () => {
 
     return (
         <div id="homePage">
+            <ParticlesBackground />
             <h1>ChatPat</h1>
             <div id="loginForm">
                 <Avatar size="xl" src={avatarUrl || null} />
@@ -44,7 +46,7 @@ const HomePage = () => {
                 />
 
                 <Button
-                    colorScheme="purple"
+                    colorScheme="teal"
                     onClick={() => {
                         if (isNullOrWhitespace(nickname)) {
                             alert("Invalid nickname!");
