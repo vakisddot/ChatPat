@@ -13,6 +13,7 @@ const ChatPage = () => {
     const [messages, setMessages] = useState([]);
     const ws = useRef(null);
 
+    // Get all messages that were sent before
     useEffect(() => {
         fetch(endpoint)
             .then((res) => {
@@ -22,7 +23,10 @@ const ChatPage = () => {
                 console.log(messages);
                 setMessages(messages);
             });
+    }, []);
 
+    // WSS
+    useEffect(() => {
         ws.current = new WebSocket(`ws://localhost:${wssPort}`);
 
         ws.current.addEventListener("open", () => {
@@ -34,6 +38,10 @@ const ChatPage = () => {
             console.log(`New message received! Data: ${e.data}`);
             setMessages((prevMessages) => [...prevMessages, parsedMessage]);
         });
+
+        return () => {
+            ws.current.close();
+        };
     }, []);
 
     const sendMessage = () => {

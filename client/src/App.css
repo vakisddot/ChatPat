@@ -69,8 +69,8 @@ h1 {
     margin-bottom: 20px;
 }
 
-.Button:hover {
-    transform: translateY(-2px);
+Button:hover {
+    transform: translateY(-3px);
 }
 
 h1 {

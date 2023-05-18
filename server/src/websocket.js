@@ -31,10 +31,7 @@ const setUpWebSocketServer = (wssPort) => {
                         const msgToSend = JSON.stringify(parsedMessage);
 
                         wss.clients.forEach((client) => {
-                            if (
-                                client !== ws &&
-                                client.readyState === WebSocket.OPEN
-                            ) {
+                            if (client.readyState === WebSocket.OPEN) {
                                 client.send(msgToSend);
                             }
                         });
