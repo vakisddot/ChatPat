@@ -5,6 +5,7 @@ import ChatMessage from "../components/ChatMessage";
 
 const ChatPage = () => {
     const endpoint = "/api/all-messages";
+    const wssPort = "3002";
 
     // States
     const { state } = useLocation();
@@ -22,7 +23,7 @@ const ChatPage = () => {
                 setMessages(messages);
             });
 
-        ws.current = new WebSocket("ws://localhost:3002");
+        ws.current = new WebSocket(`ws://localhost:${wssPort}`);
 
         ws.current.addEventListener("open", () => {
             console.log("Connected to the WSS!");
@@ -46,6 +47,7 @@ const ChatPage = () => {
         } catch (err) {
             console.log(err);
         }
+
         setCurrMessage("");
     };
 
@@ -66,7 +68,7 @@ const ChatPage = () => {
                 ) : (
                     <h2>No messages to display :/</h2>
                 )}
-                <div id="anchor"></div>
+                <div id="anchor" />
             </div>
 
             <div id="chatInput">

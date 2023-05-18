@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Avatar } from "@chakra-ui/react";
 
 const ChatMessage = ({ nickname, message, avatarUrl }) => {
