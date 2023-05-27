@@ -1,7 +1,7 @@
 <div style="text-align: center; display: inline-block">
     <h1>ChatPat</h1>
     <img src="screenshots/bobo.png">
-    <a href="https://youtu.be/ZPlYe-DWpns"><h2>Demo</h2></a>
+    <a href="https://youtu.be/ZPlYe-DWpns">Demo</a>
     <img src="screenshots/Untitled.png">
     <ul style="text-align: left; list-style: none;">
         <h3>Using:</h3>
